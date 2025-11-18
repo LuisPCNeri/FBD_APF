@@ -48,7 +48,7 @@ namespace FBD_APF.DataClasses
 
         public override string ToString()
         {
-            return $"{this.NIF,5:F1}, {this.name,5:F1}, {this.salary,5:F1}, {this.workHours,5:F1}, {this.nClub,5:F1}";
+            return $"{this.NIF}, {this.name}, {this.salary}, {this.workHours}, {this.nClub}";
         }
     }
 }

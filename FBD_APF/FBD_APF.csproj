@@ -46,10 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="DataClasses\Club.cs" />
     <Compile Include="DataClasses\EmployeTypes\Manager.cs" />
     <Compile Include="DataClasses\Employee.cs" />
+    <Compile Include="DataClasses\EmployeTypes\PersonalTrainer.cs" />
+    <Compile Include="DataClasses\EmployeTypes\Tecnician.cs" />
     <Compile Include="DataClasses\Equipment.cs" />
+    <Compile Include="DataClasses\Subscription.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

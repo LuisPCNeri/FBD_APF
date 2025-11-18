@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FBD_APF.DataClasses.EmplooyeTypes
+namespace FBD_APF.DataClasses.EmployeTypes
 {
     class Manager : Employee
     {

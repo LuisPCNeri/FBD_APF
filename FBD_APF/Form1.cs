@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using FBD_APF.DataClasses;
-using FBD_APF.DataClasses.EmplooyeTypes;
+using FBD_APF.DataClasses.EmployeTypes;
 
 namespace FBD_APF
 {
@@ -37,13 +37,6 @@ namespace FBD_APF
             return sCon.State == ConnectionState.Open;
 
         }
-        private static Club clubInit(int nif, string loc, string name)
-        {
-            Club nClub = new Club(nif);
-            nClub.setLocl(loc);
-            nClub.setName(name);
-            return nClub;   
-        }
 
         private void createData(string nodeName, SqlDataReader r)
         {
@@ -56,6 +49,19 @@ namespace FBD_APF
                         nClub.setLocl(r["Localizacao"].ToString());
                         nClub.setName(r["Nome"].ToString());
                         dataBox.Items.Add(nClub.ToString());
+                    }
+                    break;
+                case "CLIENTE":
+                    while (r.Read())
+                    {
+                        Client cli = new Client(
+                                int.Parse(r["NIF"].ToString()),
+                                r["Email"].ToString(),
+                                int.Parse(r["Numero"].ToString()),
+                                int.Parse(r["Id_Sub"].ToString()),
+                                r["NIF_PT"] == DBNull.Value ? null : (int?)int.Parse(r["NIF_PT"].ToString())
+                        );
+                        dataBox.Items.Add(cli.ToString());
                     }
                     break;
                 case "FUNCIONARIO":
@@ -84,6 +90,32 @@ namespace FBD_APF
                         dataBox.Items.Add(mgr.ToString());
                     }
                     break;
+                case "TECNICO":
+                    while(r.Read())
+                    {
+                        Tecnician tech = new Tecnician(
+                                int.Parse(r["NIF"].ToString()),
+                                r["Name"].ToString(),
+                                double.Parse(r["Salario"].ToString()),
+                                r["Horario"].ToString(),
+                                int.Parse(r["NIF_Club"].ToString())
+                        );
+                        dataBox.Items.Add(tech.ToString());
+                    }
+                    break;
+                case "PERSONAL_TRAINER":
+                    while (r.Read())
+                    {
+                        PersonalTrainer pt = new PersonalTrainer(
+                                int.Parse(r["NIF"].ToString()),
+                                r["Name"].ToString(),
+                                double.Parse(r["Salario"].ToString()),
+                                r["Horario"].ToString(),
+                                int.Parse(r["NIF_Club"].ToString())
+                        );
+                        dataBox.Items.Add(pt.ToString());
+                    }
+                    break;
                 case "EQUIPAMENTO":
                     while (r.Read())
                     {
@@ -96,6 +128,20 @@ namespace FBD_APF
                                 int.Parse(r["NIF_TEC"].ToString())
                         );
                         dataBox.Items.Add(equip.ToString());
+                    }
+                    break;
+                case "SUBSCRICAO":
+                    while (r.Read())
+                    {
+                        Console.WriteLine($"{r["Horario"].ToString()}");
+                        Subscription sub = new Subscription(
+                                int.Parse(r["IdSubscricao"].ToString()),
+                                bool.Parse(r["Acesso_Geral"].ToString()),
+                                r["Horario"].ToString(),
+                                double.Parse(r["Preco"].ToString()),
+                                int.Parse(r["NIF_CLUB"].ToString())
+                        );
+                        dataBox.Items.Add(sub.ToString());
                     }
                     break;
                 default:
