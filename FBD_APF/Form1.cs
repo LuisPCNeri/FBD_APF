@@ -36,6 +36,19 @@ namespace FBD_APF
 
         }
 
+        private static void createObj(string nodeName)
+        {
+            switch(nodeName)
+            {
+                case "Club":
+                    Club nClub = new Club(0);
+                    break;
+                case "Employee":
+                    Employee nEmployee = new Employee();
+                    break;
+            }
+        }
+
         private void TableTreeInit()
         {
             if (!isConValid(sConnection)) return;
