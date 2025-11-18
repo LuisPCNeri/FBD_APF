@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FBD_APF
+namespace FBD_APF.DataClasses
 {
     class Club
     {
@@ -13,6 +13,7 @@ namespace FBD_APF
         private string name;
 
         // CLUB constructor
+        public Club() { }
         public Club(int id) {
             this.id = id;
         }

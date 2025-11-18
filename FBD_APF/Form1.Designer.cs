@@ -73,6 +73,8 @@
             // 
             // tableTree
             // 
+            this.tableTree.BackColor = System.Drawing.SystemColors.Control;
+            this.tableTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableTree.Location = new System.Drawing.Point(33, 13);
             this.tableTree.Name = "tableTree";
             treeNode1.Name = "CLUB";
@@ -103,7 +105,7 @@
             treeNode13.Text = "BarbClub";
             this.tableTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode13});
-            this.tableTree.Size = new System.Drawing.Size(121, 204);
+            this.tableTree.Size = new System.Drawing.Size(217, 204);
             this.tableTree.TabIndex = 1;
             this.tableTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tableTree_AfterSelect);
             // 

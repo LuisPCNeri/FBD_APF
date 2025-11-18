@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace FBD_APF
+namespace FBD_APF.DataClasses
 {
     class Employee
     {
@@ -14,7 +14,7 @@ namespace FBD_APF
         private string name;
         private double salary;
         private string workHours;
-        private int nClub;
+        private int? nClub;
 
         public Employee() { }
         public Employee(int NIF, string name, double salary, string workHours, int nClub)
@@ -30,7 +30,7 @@ namespace FBD_APF
         public string getName() { return this.name; }
         public double getSalary() { return this.salary; }
         public string getWorkHours() {  return this.workHours; }
-        public int getNClub() { return this.nClub; }
+        public int? getNClub() { return this.nClub; }
 
         public void setName(string name) { this.name = name; }
         public void setSalary(double salary) { this.salary = salary; }
@@ -45,5 +45,10 @@ namespace FBD_APF
         }
 
         public void setClubNIF(int NIF) { this.nClub =  NIF; }
+
+        public override string ToString()
+        {
+            return $"{this.NIF,5:F1}, {this.name,5:F1}, {this.salary,5:F1}, {this.workHours,5:F1}, {this.nClub,5:F1}";
+        }
     }
 }
